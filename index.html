@@ -66,6 +66,17 @@
     }
 
     async function sendMsg() {
+      if (liff.getContext().type === "none") {
+        alert("Unable to send message. Please open in LINE app.")
+      } else {
+        await liff.sendMessages([
+          {
+            type: "text",
+            text: "Hello, World!"
+          }
+        ])
+        alert("Message sent")
+      }
     }
 
     function getContext() {
